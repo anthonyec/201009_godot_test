@@ -30,7 +30,10 @@ position = Vector2( 200, 400 )
 label_text = "I love you!!!!!!!!!"
 
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.647389, 0.76216, 0, -0.76216, 0.647389, -5.62668e-05, 7.25677, 6.66583 )
+transform = Transform( 1, 0, 0, 0, 0.647389, 0.76216, 0, -0.76216, 0.647389, -5.62668e-05, 9.70942, 8.74915 )
+projection = 1
+fov = 60.0
+size = 14.1198
 
 [node name="Floor" type="MeshInstance" parent="."]
 transform = Transform( 20, 0, 0, 0, 1, 0, 0, 0, 20, 0, 0, 0 )
