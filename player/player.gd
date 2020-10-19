@@ -5,7 +5,7 @@ onready var debug_overlay = get_node("/root/DebugOverlay")
 var speed: float = 5
 
 func _ready():
-	print("Player ready")
+	pass
 
 func _process(delta: float):
 	var direction: Vector3 = Vector3(0, 0, 0)
@@ -19,8 +19,3 @@ func _process(delta: float):
 	debug_overlay.draw.add_vector(player_position, player_position + direction, 3, Color(1, 0, 0, 1))
 
 	move_and_collide(direction * delta)
-
-
-func _input(event):
-	if event.is_action_pressed("move_left"):
-		print("move_left")

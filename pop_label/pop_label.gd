@@ -10,7 +10,7 @@ var transparentColor = Color(1, 1, 1, 0)
 func _ready():
 	$Label.text = label_text
 	pop()
-	
+
 func pop():
 	$Tween.interpolate_property(
 		self,
@@ -23,11 +23,9 @@ func pop():
 	)
 
 	$Tween.start()
-	
+
 	yield($Tween, "tween_completed")
-	
-	print("HELLO")
-	
+
 	$Tween.interpolate_property(
 		self,
 		"position",
@@ -37,7 +35,7 @@ func pop():
 		Tween.TRANS_BACK,
 		Tween.EASE_IN
 	)
-	
+
 	$Tween.interpolate_property(
 		self,
 		"modulate",
@@ -47,10 +45,8 @@ func pop():
 		Tween.TRANS_LINEAR,
 		Tween.EASE_IN
 	)
-	
+
 	yield($Tween, "tween_completed")
-	
-	print("Done")
-	
+
 	queue_free()
 

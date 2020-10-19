@@ -1,66 +1,9 @@
 [gd_scene load_steps=2 format=2]
 
-[sub_resource type="GDScript" id=1]
-script/source = "extends Node2D
-
-export (Vector2) var final_scale = Vector2(2, 2)
-export (float) var float_distance = 100
-export (float) var duration = 1
-export (String) var label_text = \"Label Text\"
-
-var transparentColor = Color(1, 1, 1, 0)
-
-func _ready():
-	$Label.text = label_text
-	pop()
-	
-func pop():
-	$Tween.interpolate_property(
-		self,
-		\"scale\",
-		scale,
-		final_scale,
-		duration,
-		Tween.TRANS_BACK,
-		Tween.EASE_IN_OUT
-	)
-
-	$Tween.start()
-	
-	yield($Tween, \"tween_completed\")
-	
-	print(\"HELLO\")
-	
-	$Tween.interpolate_property(
-		self,
-		\"position\",
-		position,
-		position + Vector2(0, -float_distance),
-		duration,
-		Tween.TRANS_BACK,
-		Tween.EASE_IN
-	)
-	
-	$Tween.interpolate_property(
-		self,
-		\"modulate\",
-		modulate,
-		transparentColor,
-		duration,
-		Tween.TRANS_LINEAR,
-		Tween.EASE_IN
-	)
-	
-	yield($Tween, \"tween_completed\")
-	
-	print(\"Done\")
-	
-	queue_free()
-
-"
+[ext_resource path="res://pop_label/pop_label.gd" type="Script" id=1]
 
 [node name="PopLabel" type="Node2D"]
-script = SubResource( 1 )
+script = ExtResource( 1 )
 
 [node name="Label" type="Label" parent="."]
 margin_left = -96.0
