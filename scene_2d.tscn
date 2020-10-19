@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://pop_label/pop_label.tscn" type="PackedScene" id=1]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+margin_top = 8.0
+margin_right = 768.0
+margin_bottom = 440.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="CenterContainer"]
+margin_left = 384.0
+margin_top = 216.0
+margin_right = 384.0
+margin_bottom = 216.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PopLabel" parent="CenterContainer/Control" instance=ExtResource( 1 )]
+position = Vector2( 32, 16 )
+label_text = "I love you!!!!!!!"
