@@ -14,3 +14,16 @@ I could see it was being autoloaded in the project
 ## Debugging
 - Make a way to show debug text quickly and easily, above object
 - Show debug vectors easily
+
+## Searchigng for help
+- Search for your problem in unity then translate to godot!
+- For example, rotating camera around a point only returned results about parenting the camera to a Spatial node with an offset
+- Searching for unity gave the example of looking at a target and translating
+```unity
+    transform.LookAt(target);
+    transform.Translate(Vector3.right * Time.deltaTime)
+```
+```gdscript
+	self.look_at(targetObject.global_transform.origin, Vector3.UP)
+	self.translate(Vector3.RIGHT * delta)
+```

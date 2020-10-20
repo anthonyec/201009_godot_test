@@ -5,9 +5,9 @@ onready var debug_overlay = get_node("/root/DebugOverlay")
 var velocity = Vector3(rand_range(-0.15, 0.15), rand_range(-0.15, 0.15), rand_range(-0.15, 0.15))
 var acceleration = Vector3(0, 0, 0)
 var maxForce = 0.002
-var maxSeperationForce = 0.002
+var maxSeperationForce = 0.003
 var maxEdgeX = 30
-var maxEdgeZ = 20
+var maxEdgeZ = 30
 var maxEdgeY = 10
 var maxSpeed = 0.15
 
@@ -22,7 +22,7 @@ func _process(_delta):
 
 func seperation(boids: Array) -> Vector3:
 	var total = 0
-	var perception = 5
+	var perception = 6
 	var steering = Vector3(0, 0, 0)
 
 	for boid in boids:
@@ -112,6 +112,8 @@ func flock(boids: Array):
 	acceleration = acceleration + seperation
 	acceleration = acceleration + alignment
 	acceleration = acceleration + cohesion
+
+	debug_overlay.draw.draw_str(self.global_transform.origin, str(acceleration))
 
 	debug_overlay.draw.add_vector(
 		self.global_transform.origin,
