@@ -2,9 +2,10 @@ extends KinematicBody
 
 onready var debug_overlay = get_node("/root/DebugOverlay")
 
-var velocity = Vector3(rand_range(-0.15, 0.15), 0, rand_range(-0.15, 0.15))
+var velocity = Vector3(rand_range(-0.15, 0.15), rand_range(-0.15, 0.15), rand_range(-0.15, 0.15))
 var acceleration = Vector3(0, 0, 0)
 var maxForce = 0.002
+var maxSeperationForce = 0.002
 var maxEdgeX = 30
 var maxEdgeZ = 20
 var maxEdgeY = 10
@@ -16,6 +17,33 @@ func _ready():
 func _process(_delta):
 	self.global_transform.origin += velocity
 	velocity += acceleration
+
+	velocity.y = 0
+
+func seperation(boids: Array) -> Vector3:
+	var total = 0
+	var perception = 5
+	var steering = Vector3(0, 0, 0)
+
+	for boid in boids:
+		var distance = self.global_transform.origin.distance_to(boid.global_transform.origin)
+
+		if boid != self && distance < perception:
+			var difference = self.global_transform.origin - boid.global_transform.origin
+			difference = difference / distance
+			steering += difference
+			total += 1
+
+	if total > 0:
+		steering = steering / total
+		steering = steering.normalized() * maxSpeed
+		steering = steering - self.velocity
+
+		# Doing this because there isn't a Vector3.clamped, unlike Vector2. Don' know why!
+		if steering.length() > maxSeperationForce:
+			steering = steering.normalized() * maxSeperationForce
+
+	return steering
 
 func cohesion(boids: Array) -> Vector3:
 	var total = 0
@@ -77,9 +105,11 @@ func align(boids: Array) -> Vector3:
 func flock(boids: Array):
 	var alignment = self.align(boids)
 	var cohesion = self.cohesion(boids)
+	var seperation = self.seperation(boids)
 
 	acceleration = Vector3(0, 0, 0)
 
+	acceleration = acceleration + seperation
 	acceleration = acceleration + alignment
 	acceleration = acceleration + cohesion
 

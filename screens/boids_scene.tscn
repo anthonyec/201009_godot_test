@@ -23,7 +23,7 @@ size = 14.1198
 
 [node name="FarCamera" type="Camera" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.975829, 0.218536, 0, -0.218536, 0.975829, -5.62668e-05, 11.8062, 48.3394 )
-visible = false
+current = true
 fov = 60.0
 size = 14.1198
 
@@ -49,6 +49,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.507, 0 )
 [node name="DebugOverlay" type="CanvasLayer" parent="."]
 
 [node name="DebugDraw3D" type="Control" parent="DebugOverlay"]
+visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 script = ExtResource( 5 )
