@@ -17,12 +17,18 @@ extents = Vector3( 1, 0.0385728, 1 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0104506, 0.0181594, 0.0151167 )
 
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.570312, 0.821428, 0, -0.821428, 0.570312, -5.62668e-05, 24.4197, 23.5166 )
+transform = Transform( 1, 0, 0, 0, 0.509912, 0.860227, 0, -0.860227, 0.509912, -5.62668e-05, 28.3747, 22.362 )
+fov = 60.0
+size = 14.1198
+
+[node name="FarCamera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.975829, 0.218536, 0, -0.218536, 0.975829, -5.62668e-05, 11.8062, 48.3394 )
+visible = false
 fov = 60.0
 size = 14.1198
 
 [node name="Floor" type="MeshInstance" parent="."]
-transform = Transform( 20, 0, 0, 0, 1, 0, 0, 0, 20, 0, 0, 0 )
+transform = Transform( 30, 0, 0, 0, 1, 0, 0, 0, 20, 0, 0, 0 )
 mesh = SubResource( 1 )
 material/0 = ExtResource( 1 )
 
@@ -75,4 +81,76 @@ script = ExtResource( 6 )
 
 [node name="Boid6" parent="Flock" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.3566, 1.51883, 14.1216 )
+script = ExtResource( 6 )
+
+[node name="Boid7" parent="Flock" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.74098, 1.51883, -7.20523 )
+script = ExtResource( 6 )
+
+[node name="Boid8" parent="Flock" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 17.87, 1.51883, -5.08105 )
+script = ExtResource( 6 )
+
+[node name="Boid9" parent="Flock" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.9905, 1.51883, 13.7678 )
+script = ExtResource( 6 )
+
+[node name="Boid10" parent="Flock" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 21.2018, 1.51884, 7.85992 )
+script = ExtResource( 6 )
+
+[node name="Boid11" parent="Flock" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 28.681, 1.51884, 1.2088 )
+script = ExtResource( 6 )
+
+[node name="Boid12" parent="Flock" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14.4375, 1.51884, 17.1197 )
+script = ExtResource( 6 )
+
+[node name="Boid13" parent="Flock" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.2545, 1.51883, -18.6389 )
+script = ExtResource( 6 )
+
+[node name="Boid14" parent="Flock" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.35652, 1.51883, -16.5147 )
+script = ExtResource( 6 )
+
+[node name="Boid15" parent="Flock" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.47699, 1.51883, 2.33417 )
+script = ExtResource( 6 )
+
+[node name="Boid16" parent="Flock" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20.8349, 1.51883, 0.216787 )
+script = ExtResource( 6 )
+
+[node name="Boid17" parent="Flock" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.3557, 1.51883, -6.43433 )
+script = ExtResource( 6 )
+
+[node name="Boid18" parent="Flock" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -27.5993, 1.51883, 9.47654 )
+script = ExtResource( 6 )
+
+[node name="Boid19" parent="Flock" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20.9836, 1.51883, -11.8503 )
+script = ExtResource( 6 )
+
+[node name="Boid20" parent="Flock" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.627364, 1.51883, -9.72607 )
+script = ExtResource( 6 )
+
+[node name="Boid21" parent="Flock" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.25216, 1.51883, 9.1228 )
+script = ExtResource( 6 )
+
+[node name="Boid22" parent="Flock" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.4935, 1.51883, 3.65142 )
+script = ExtResource( 6 )
+
+[node name="Boid23" parent="Flock" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.01434, 1.51883, -2.9997 )
+script = ExtResource( 6 )
+
+[node name="Boid24" parent="Flock" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -22.2579, 1.51883, 12.9112 )
 script = ExtResource( 6 )
