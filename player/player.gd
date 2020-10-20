@@ -25,11 +25,10 @@ func _process(delta: float):
 		input.y * sqrt(1 - input.x * input.x * 0.5)
 	)
 
-	# inputCircle = inputCircle.normalized()
-
 	direction += Vector3(inputCircle.x, 0, inputCircle.y) * speed
 
 	var player_position = self.global_transform.origin;
 
 	debug_overlay.draw.add_vector(player_position, player_position + direction, 3, Color(1, 0, 0, 1))
-	move_and_collide(direction * delta)
+
+	var _collision = move_and_collide(direction * delta)

@@ -2,3 +2,15 @@
 Script was being invoked twice
 Did a search in all the files for the script name
 I could see it was being autoloaded in the project
+
+## Weird bugs with using an external editor (VS Code)
+- Sometimes a script won't update, it's cached in an object itself
+- Have to restart to fix that
+- Everytime I save in the external editor I get the error:
+```txt
+ Another resource is loaded from path 'res://dialogue/dialogue.gd' (possible cyclic resource inclusion).
+```
+
+## Debugging
+- Make a way to show debug text quickly and easily, above object
+- Show debug vectors easily

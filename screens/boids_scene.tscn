@@ -1,0 +1,78 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://floor/floor.tres" type="Material" id=1]
+[ext_resource path="res://screens/lighting.tscn" type="PackedScene" id=2]
+[ext_resource path="res://boid/boid.tscn" type="PackedScene" id=3]
+[ext_resource path="res://screens/1m_cube.dae" type="PackedScene" id=4]
+[ext_resource path="res://debug_overlay/debug_draw_3d.gd" type="Script" id=5]
+[ext_resource path="res://boid/boid.gd" type="Script" id=6]
+[ext_resource path="res://boid/flock.gd" type="Script" id=7]
+
+[sub_resource type="PlaneMesh" id=1]
+
+[sub_resource type="BoxShape" id=2]
+extents = Vector3( 1, 0.0385728, 1 )
+
+[node name="Spatial" type="Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0104506, 0.0181594, 0.0151167 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.570312, 0.821428, 0, -0.821428, 0.570312, -5.62668e-05, 24.4197, 23.5166 )
+fov = 60.0
+size = 14.1198
+
+[node name="Floor" type="MeshInstance" parent="."]
+transform = Transform( 20, 0, 0, 0, 1, 0, 0, 0, 20, 0, 0, 0 )
+mesh = SubResource( 1 )
+material/0 = ExtResource( 1 )
+
+[node name="RigidBody" type="RigidBody" parent="Floor"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Floor/RigidBody"]
+shape = SubResource( 2 )
+
+[node name="DirectionalLight" parent="." instance=ExtResource( 2 )]
+transform = Transform( 0.651257, 0.528545, -0.544523, -0.0109283, 0.724014, 0.689699, 0.758779, -0.44322, 0.477295, 1.86265e-09, 2.03387, -9.31323e-10 )
+
+[node name="1m_cube" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0 )
+
+[node name="1m_cube2" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.507, 0 )
+
+[node name="DebugOverlay" type="CanvasLayer" parent="."]
+
+[node name="DebugDraw3D" type="Control" parent="DebugOverlay"]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Flock" type="Node" parent="."]
+script = ExtResource( 7 )
+
+[node name="Boid" parent="Flock" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.08238, 1.51883, -10.6399 )
+script = ExtResource( 6 )
+
+[node name="Boid2" parent="Flock" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5286, 1.51883, -8.51568 )
+script = ExtResource( 6 )
+
+[node name="Boid3" parent="Flock" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.64909, 1.51883, 10.3332 )
+script = ExtResource( 6 )
+
+[node name="Boid4" parent="Flock" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.59228, 1.51883, 4.86181 )
+script = ExtResource( 6 )
+
+[node name="Boid5" parent="Flock" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.88692, 1.51883, -1.78931 )
+script = ExtResource( 6 )
+
+[node name="Boid6" parent="Flock" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.3566, 1.51883, 14.1216 )
+script = ExtResource( 6 )
