@@ -4,7 +4,7 @@
 [ext_resource path="res://screens/lighting.tscn" type="PackedScene" id=2]
 [ext_resource path="res://boid/boid.tscn" type="PackedScene" id=3]
 [ext_resource path="res://screens/1m_cube.dae" type="PackedScene" id=4]
-[ext_resource path="res://debug_overlay/debug_draw_3d.gd" type="Script" id=5]
+[ext_resource path="res://debug_overlay/debug_overlay.tscn" type="PackedScene" id=5]
 [ext_resource path="res://boid/boid.gd" type="Script" id=6]
 [ext_resource path="res://boid/flock.gd" type="Script" id=7]
 [ext_resource path="res://orbit_camera.gd" type="Script" id=8]
@@ -48,15 +48,10 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.42234, 0 )
 [node name="1m_cube2" parent="." instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.507, 0 )
 
-[node name="DebugOverlay" type="CanvasLayer" parent="."]
+[node name="DebugOverlay" parent="." instance=ExtResource( 5 )]
 
-[node name="DebugDraw3D" type="Control" parent="DebugOverlay"]
-margin_right = 40.0
-margin_bottom = 40.0
-script = ExtResource( 5 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="DebugDraw3D" parent="DebugOverlay" index="0"]
+visible = false
 
 [node name="Flock" type="Node" parent="."]
 script = ExtResource( 7 )
@@ -252,3 +247,5 @@ script = ExtResource( 6 )
 [node name="Boid48" parent="Flock" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -23.3233, 1.51883, 16.2578 )
 script = ExtResource( 6 )
+
+[editable path="DebugOverlay"]

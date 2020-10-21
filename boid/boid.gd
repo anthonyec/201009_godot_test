@@ -113,7 +113,10 @@ func flock(boids: Array):
 	acceleration = acceleration + alignment
 	acceleration = acceleration + cohesion
 
-	debug_overlay.draw.draw_str(self.global_transform.origin, str(acceleration))
+	# Work out how to rotate character
+	# var face_angle = rad2deg(atan2(acceleration.x, acceleration.z))
+	# debug_overlay.draw.draw_str(self.global_transform.origin, str(face_angle))
+	# self.rotation_degrees.y = face_angle
 
 	debug_overlay.draw.add_vector(
 		self.global_transform.origin,

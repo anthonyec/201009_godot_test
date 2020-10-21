@@ -1,7 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://floor/floor.tres" type="Material" id=1]
 [ext_resource path="res://screens/lighting.tscn" type="PackedScene" id=2]
+[ext_resource path="res://character/character.tscn" type="PackedScene" id=3]
+[ext_resource path="res://character/character.gd" type="Script" id=4]
 [ext_resource path="res://debug_overlay/debug_draw_3d.gd" type="Script" id=5]
 [ext_resource path="res://orbit_camera.gd" type="Script" id=8]
 
@@ -14,7 +16,7 @@ extents = Vector3( 1, 0.0385728, 1 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0104506, 0.0181594, 0.0151167 )
 
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.509912, 0.860227, 0, -0.860227, 0.509912, -5.62668e-05, 28.3747, 22.362 )
+transform = Transform( 1, 0, 0, 0, 0.509912, 0.860227, 0, -0.860227, 0.509912, -5.62668e-05, 13.1786, 9.69368 )
 current = true
 fov = 60.0
 size = 14.1198
@@ -34,7 +36,7 @@ shape = SubResource( 2 )
 [node name="DirectionalLight" parent="." instance=ExtResource( 2 )]
 
 [node name="CameraTarget" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.8539, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.24728, 0 )
 
 [node name="DebugOverlay" type="CanvasLayer" parent="."]
 
@@ -45,3 +47,11 @@ script = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Character" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0357714, 1.70663, 0 )
+script = ExtResource( 4 )
+
+[node name="Character2" parent="." instance=ExtResource( 3 )]
+transform = Transform( 0.797679, 0, 0.603083, 0, 1, 0, -0.603083, 0, 0.797679, 2.39633, 1.74297, 2.35366 )
+script = ExtResource( 4 )

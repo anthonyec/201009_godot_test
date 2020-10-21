@@ -27,3 +27,8 @@ I could see it was being autoloaded in the project
 	self.look_at(targetObject.global_transform.origin, Vector3.UP)
 	self.translate(Vector3.RIGHT * delta)
 ```
+
+## Godot uses negative Z as forward
+- I felt lost in godot for awhile until I found out this
+> Keep in mind Godot uses OpenGL convention for its transforms, so looking forward means looking at the negative Z axis.
+https://godotengine.org/qa/23054/look_at-looks-exactly-at-the-opposite-direction#:~:text=2%20Answers&text=Keep%20in%20mind%20Godot%20uses,look%20in%20the%20right%20direction.
